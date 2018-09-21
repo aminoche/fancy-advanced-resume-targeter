@@ -9,16 +9,17 @@ class App extends Component {
     this.state = {
       resume: '',
       jobDescription: '',
-      summary: {}
+      summary: {
+        skillsYouHaveAndInJobDescription: [],
+        skillsYouDoNotHaveAndInJobDescription: [],
+        skillsYouHaveAndNotInJobDescription: [],
+        fluffInJobDescription: [],
+        percentSkillsMatching: 0
+      }
     };
-    // this.sendSummary = this.sendSummary.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // sendSummary(event) {
-  //   event.preventDefault();
-  //   return summary(this.state.resume, this.state.jobDescription);
-  // }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
     this.setState({
@@ -26,8 +27,39 @@ class App extends Component {
     });
   }
   render() {
-    const resume = this.state.resume;
-    const jobDescription = this.state.jobDescription;
+    const skillsYouHaveAndInJobDescription = this.state.summary
+      .skillsYouHaveAndInJobDescription;
+    const skillsYouDoNotHaveAndInJobDescription = this.state.summary
+      .skillsYouDoNotHaveAndInJobDescription;
+    const percentSkillsMatching = Math.floor(
+      this.state.summary.percentSkillsMatching * 100
+    );
+    const resume = this.state.resume.split(' ').map((word, index) => (
+      <span
+        key={index}
+        className={
+          skillsYouHaveAndInJobDescription.includes(word) ? 'green' : 'yellow'
+        }
+      >
+        {word}{' '}
+      </span>
+    ));
+    const jobDescription = this.state.jobDescription
+      .split(' ')
+      .map((word, index) => (
+        <span
+          key={index}
+          className={
+            skillsYouHaveAndInJobDescription.includes(word)
+              ? 'green'
+              : skillsYouDoNotHaveAndInJobDescription.includes(word)
+                ? 'red'
+                : 'grey'
+          }
+        >
+          {word}{' '}
+        </span>
+      ));
     return (
       <div className="App">
         <header className="App-header">
@@ -57,13 +89,14 @@ class App extends Component {
               onChange={this.handleChange}
             />
           </label>
-          {/* <input type="submit" value="Submit" onClick={this.sendSummary} /> */}
         </form>
-        Resume:
+        <h2>Percent Skills Matching: {percentSkillsMatching}</h2>
+        <h2>Resume:</h2>
         <br />
         {resume}
         <br />
-        Job Description: {jobDescription}
+        <h2>Job Description: </h2>
+        {jobDescription}
         <br />
       </div>
     );

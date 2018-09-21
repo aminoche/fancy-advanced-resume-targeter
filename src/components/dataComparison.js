@@ -39,7 +39,11 @@ export const summary = (source, target) => {
       .map(obj => obj.word)
   );
   const skillsYouHaveAndNotInJobDescription = uniq(
-    sourceVsTarget.filter(obj => !obj.sourceWordInTarget).map(obj => obj.word)
+    sourceVsTarget
+      .filter(
+        obj => !obj.sourceWordInTarget && obj.partOfSpeech.includes('Noun')
+      )
+      .map(obj => obj.word)
   );
   const skillsYouDoNotHaveAndInJobDescription = uniq(
     targetVsSource

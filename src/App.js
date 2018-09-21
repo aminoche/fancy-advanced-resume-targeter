@@ -38,7 +38,7 @@ class App extends Component {
       <span
         key={index}
         className={
-          skillsYouHaveAndInJobDescription.includes(word) ? 'green' : 'yellow'
+          skillsYouHaveAndInJobDescription.includes(word) ? 'green' : 'grey'
         }
       >
         {word}{' '}
@@ -90,7 +90,7 @@ class App extends Component {
             />
           </label>
         </form>
-        <h2>Percent Skills Matching: {percentSkillsMatching}</h2>
+        <h2>Percent Skills Matching: {percentSkillsMatching}%</h2>
         <h2>Resume:</h2>
         <br />
         {resume}

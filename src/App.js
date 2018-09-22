@@ -18,11 +18,17 @@ class App extends Component {
       }
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
     this.setState({
+      resume: this.state.resume,
+      jobDescription: this.state.jobDescription,
       summary: summary(this.state.resume, this.state.jobDescription)
     });
   }
@@ -89,6 +95,9 @@ class App extends Component {
               onChange={this.handleChange}
             />
           </label>
+          <button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </button>
         </form>
         <h2>Percent Skills Matching: {percentSkillsMatching}%</h2>
         <h2>Resume:</h2>

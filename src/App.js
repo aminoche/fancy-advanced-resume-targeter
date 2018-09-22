@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fartLogo from './fartLogo.png';
 import { summary } from './components/dataComparison';
-import { debounce } from 'lodash';
+// import { debounce } from 'lodash';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
       }
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = debounce(this.handleFocus.bind(this), 2000);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   handleChange(event) {
@@ -42,6 +42,7 @@ class App extends Component {
     const percentSkillsMatching = Math.floor(
       this.state.summary.percentSkillsMatching * 100
     );
+
     const resume = this.state.resume.split(' ').map((word, index) => (
       <span
         key={index}

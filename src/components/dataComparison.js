@@ -7,8 +7,8 @@ const typeOfWord = string =>
     .map(obj => obj.tags);
 
 const compareSourceToTarget = (source, target) => {
-  const sourceSplit = source.split(' ');
-  const targetSplit = target.split(' ');
+  const sourceSplit = source.replace(/\n/g, ' ').split(' ');
+  const targetSplit = target.replace(/\n/g, ' ').split(' ');
   const comparedSourceVsTarget = sourceSplit.map(word => {
     const sourceWordInTarget = targetSplit.includes(word);
     const partOfSpeech = typeOfWord(word)[0] || [];
@@ -18,8 +18,8 @@ const compareSourceToTarget = (source, target) => {
 };
 
 const compareTargetToSource = (source, target) => {
-  const sourceSplit = source.split(' ');
-  const targetSplit = target.split(' ');
+  const sourceSplit = source.replace(/\n/g, ' ').split(' ');
+  const targetSplit = target.replace(/\n/g, ' ').split(' ');
   const comparedTargetVsSource = targetSplit.map(word => {
     const targetWordInSource = sourceSplit.includes(word);
     const partOfSpeech = typeOfWord(word)[0] || [];

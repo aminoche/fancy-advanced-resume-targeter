@@ -122,6 +122,27 @@ REQUIREMENTS/QUALIFICATIONS
 • Demonstrated ability to document complex designs
 • Mobile (native application and website optimization) and content management solution experience a plus`;
 
+const developerJobDescription = `Job description
+We are looking for a Developer to join our team in Salt Lake City.
+
+Developers at Underbelly have a unique opportunity to work on a diverse range of projects throughout the year, from MVP applications to marketing sites, working with a diverse set of great clients. Our Developers are involved throughout each step in a project including technology choices, time estimation, and building the product through launch.
+
+We work hard while fostering a fun, laid-back atmosphere here at the ‘Belly. We love our culture and are looking for someone who is not only an awesome developer, but a good fit for our close-knit team.
+
+We want someone who can build quality products with clean and efficient code. Like smooth animations? We do too! Like to make buttery smooth experiences? It sounds like we are a match.
+
+At Underbelly we specialize in React applications. We also have production applications in Ruby on Rails, Phoenix and Node.
+
+Required Skills & Experience
+2-4 years paid development experience
+A good grasp of the JavaScript language
+A track record of shipping awesome work
+The ability to rapidly turn designs into reality
+HTML, CSS, Javascript, deployment, design patterns and other standard programming practices
+An ability to estimate how long a design might take to build
+Performant & smooth animations
+The ability to mentor`;
+
 const resumeSample = 'css js node express.js react postgres';
 const jobDescriptionSample = 'css js flexbox softSkill is a';
 

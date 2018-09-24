@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fartLogo from './fartLogo.png';
 import { summary } from './components/dataComparison';
-// import { debounce } from 'lodash';
+import { debounce } from 'lodash';
 import './App.css';
 
 class App extends Component {
@@ -19,16 +19,17 @@ class App extends Component {
       }
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
+    this.defineSummary = debounce(this.defineSummary.bind(this), 1000);
   }
 
   handleChange(event) {
     console.log('calling handleChange');
     this.setState({ [event.target.name]: event.target.value });
+    this.defineSummary();
   }
 
-  handleFocus(event) {
-    console.log('calling handleFocus');
+  defineSummary() {
+    console.log('calling defineSummary');
     this.setState({
       summary: summary(this.state.resume, this.state.jobDescription)
     });
@@ -75,6 +76,36 @@ class App extends Component {
           <img src={fartLogo} className="App-logo" alt="logo" />
           <h1 className="App-title">Fancy Advanced Resume Targeter</h1>
         </header>
+
+        <form>
+          <label>
+            Resume
+            <textarea
+              type="text"
+              name="resume"
+              resume={this.state.resume}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Job Description
+            <textarea
+              type="text"
+              name="jobDescription"
+              jobdescription={this.state.jobDescription}
+              onChange={this.handleChange}
+            />
+          </label>
+        </form>
+        <h2>Percent Skills Matching: {percentSkillsMatching}%</h2>
+        <h2>Resume:</h2>
+        <br />
+        {resume}
+        <br />
+        <h2>Job Description: </h2>
+        {jobDescription}
+        <br />
+        <hr />
         <p className="App-intro">
           This application was written by{' '}
           <a href="https://www.linkedin.com/in/adilminocherhomjee">
@@ -98,36 +129,6 @@ class App extends Component {
           Keep updating your resume and tabbing between the two fields until you
           have a strong fit for your dream role!
         </p>
-        <form>
-          <label>
-            Resume
-            <textarea
-              type="text"
-              name="resume"
-              resume={this.state.resume}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
-            />
-          </label>
-          <label>
-            Job Description
-            <textarea
-              type="text"
-              name="jobDescription"
-              jobdescription={this.state.jobDescription}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
-            />
-          </label>
-        </form>
-        <h2>Percent Skills Matching: {percentSkillsMatching}%</h2>
-        <h2>Resume:</h2>
-        <br />
-        {resume}
-        <br />
-        <h2>Job Description: </h2>
-        {jobDescription}
-        <br />
       </div>
     );
   }

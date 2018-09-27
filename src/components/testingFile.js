@@ -1,10 +1,11 @@
 const uniq = require('lodash/uniq');
+const sampleData = require('../../data/sampleData');
 const nlp = require('compromise');
 
 const typeOfWord = string =>
   nlp(string)
     .out('tags')
-    .map(obj => obj.tags);
+    .map(obj => obj.tags)[0];
 
 const compareSourceToTarget = (source, target) => {
   const sourceSplit = source.replace(/\n/g, ' ').split(' ');
@@ -28,7 +29,7 @@ const compareTargetToSource = (source, target) => {
   return comparedTargetVsSource;
 };
 
-export const summary = (source, target) => {
+const summary = (source, target) => {
   const sourceVsTarget = compareSourceToTarget(source, target);
   const targetVsSource = compareTargetToSource(source, target);
   const skillsYouHaveAndInJobDescription = uniq(
@@ -38,13 +39,6 @@ export const summary = (source, target) => {
       )
       .map(obj => obj.word)
   );
-  // const skillsYouHaveAndNotInJobDescription = uniq(
-  //   sourceVsTarget
-  //     .filter(
-  //       obj => !obj.sourceWordInTarget && obj.partOfSpeech.includes('Noun')
-  //     )
-  //     .map(obj => obj.word)
-  // );
   const skillsYouDoNotHaveAndInJobDescription = uniq(
     targetVsSource
       .filter(
@@ -52,13 +46,6 @@ export const summary = (source, target) => {
       )
       .map(obj => obj.word)
   );
-  // const fluffInJobDescription = uniq(
-  //   targetVsSource
-  //     .filter(
-  //       obj => !obj.targetWordInSource && !obj.partOfSpeech.includes('Noun')
-  //     )
-  //     .map(obj => obj.word)
-  // );
   const percentSkillsMatching =
     skillsYouHaveAndInJobDescription.length /
       (skillsYouHaveAndInJobDescription.length +
@@ -66,9 +53,15 @@ export const summary = (source, target) => {
 
   return {
     skillsYouHaveAndInJobDescription,
-    // skillsYouHaveAndNotInJobDescription,
     skillsYouDoNotHaveAndInJobDescription,
-    // fluffInJobDescription,
     percentSkillsMatching
   };
 };
+
+const cl = func => {
+  console.log('************************************************');
+  console.log(func);
+  console.log('************************************************');
+};
+
+cl(summary(sampleData.resumeSample, sampleData.jobDescriptionSample));

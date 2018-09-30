@@ -1,9 +1,9 @@
-Fancy Advanced Resume Targeter
+# Fancy Advanced Resume Targeter
 
-Purpose:
+## Purpose:
 To enable a user to visually compare their resume against a job description
 
-Example:
+## Example:
 
 Source – e.g. Resume: A B
 Target – e.g. Job Description: B C D

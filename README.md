@@ -1,4 +1,4 @@
-Fancy Advanced Resume Targeter (FART)
+Fancy Advanced Resume Targeter
 
 Purpose:
 To enable a user to visually compare their resume against a job description

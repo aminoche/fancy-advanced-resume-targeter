@@ -1,6 +1,6 @@
 # Fancy Advanced Resume Targeter
 
-Hosted at Heroku: https://fancy-advanced-resume-targeter.herokuapp.com/
+Hosted on Heroku: https://fancy-advanced-resume-targeter.herokuapp.com/
 
 ## Purpose:
 To enable a user to visually compare their resume against a job description

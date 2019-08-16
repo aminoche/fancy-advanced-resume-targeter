@@ -1,9 +1,13 @@
 # Fancy Advanced Resume Targeter
 
-Hosted on Heroku: https://fancy-advanced-resume-targeter.herokuapp.com/
+## Hosted on Heroku: 
+https://fancy-advanced-resume-targeter.herokuapp.com/
 
 ## Medium Post:
 https://medium.com/@adilminocherhomjee_74798/dont-resume-working-on-your-resum%C3%A9-until-you-read-this-one-tip-136db4eb3c3a
+
+## YouTube Summary
+https://youtu.be/pfpftjygYVY
 
 ## Purpose:
 To enable a user to visually compare their resume against a job description

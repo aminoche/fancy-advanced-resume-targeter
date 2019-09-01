@@ -26,3 +26,4 @@ D = Grey
                             No                  Yes
           Resume  Yes   Caution = Yellow    Good = Green
                   No    N/A = Grey          Bad = Red
+npm

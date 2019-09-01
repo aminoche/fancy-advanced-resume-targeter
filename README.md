@@ -1,6 +1,6 @@
 # Fancy Advanced Resume Targeter
 
-## Hosted on Heroku: 
+## Hosted on Heroku:
 https://fancy-advanced-resume-targeter.herokuapp.com/
 
 ## Medium Post:
@@ -26,6 +26,3 @@ D = Grey
                             No                  Yes
           Resume  Yes   Caution = Yellow    Good = Green
                   No    N/A = Grey          Bad = Red
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

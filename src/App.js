@@ -116,7 +116,7 @@ class App extends Component {
           <br />
           The purpose of the Fancy Advanced Resume Targeter is to enable an end
           user to compare their resume against a job description's keywords.
-          Paste your resume in the top box and a target job desription in the
+          Paste your resume in the top box and a target job description in the
           bottom box.
           <br />
           <br />

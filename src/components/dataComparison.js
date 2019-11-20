@@ -12,7 +12,11 @@ const compareSourceToTarget = (source, target) => {
   const comparedSourceVsTarget = sourceSplit.map(word => {
     const sourceWordInTarget = targetSplit.includes(word);
     const partOfSpeech = typeOfWord(word)[0] || [];
-    return { word, sourceWordInTarget, partOfSpeech };
+    return {
+      word,
+      sourceWordInTarget,
+      partOfSpeech
+    };
   });
   return comparedSourceVsTarget;
 };
@@ -23,7 +27,11 @@ const compareTargetToSource = (source, target) => {
   const comparedTargetVsSource = targetSplit.map(word => {
     const targetWordInSource = sourceSplit.includes(word);
     const partOfSpeech = typeOfWord(word)[0] || [];
-    return { word, targetWordInSource, partOfSpeech };
+    return {
+      word,
+      targetWordInSource,
+      partOfSpeech
+    };
   });
   return comparedTargetVsSource;
 };

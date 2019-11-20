@@ -63,26 +63,26 @@ class App extends Component {
             skillsYouHaveAndInJobDescription.includes(word)
               ? 'green'
               : skillsYouDoNotHaveAndInJobDescription.includes(word)
-                ? 'red'
-                : 'grey'
+              ? 'red'
+              : 'grey'
           }
         >
           {word}{' '}
         </span>
       ));
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={fartLogo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Fancy Advanced Resume Targeter</h1>
+      <div className='App'>
+        <header className='App-header'>
+          <img src={fartLogo} className='App-logo' alt='logo' />
+          <h1 className='App-title'>Fancy Advanced Resume Targeter</h1>
         </header>
 
         <form>
           <label>
             Resume
             <textarea
-              type="text"
-              name="resume"
+              type='text'
+              name='resume'
               resume={this.state.resume}
               onChange={this.handleChange}
             />
@@ -90,8 +90,8 @@ class App extends Component {
           <label>
             Job Description
             <textarea
-              type="text"
-              name="jobDescription"
+              type='text'
+              name='jobDescription'
               jobdescription={this.state.jobDescription}
               onChange={this.handleChange}
             />
@@ -106,28 +106,11 @@ class App extends Component {
         {jobDescription}
         <br />
         <hr />
-        <p className="App-intro">
+        <p className='App-intro'>
           This application was written by{' '}
-          <a href="https://www.linkedin.com/in/adilminocherhomjee">
+          <a href='https://www.linkedin.com/in/adilminocherhomjee'>
             Adil Minocherhomjee
           </a>{' '}
-          as part of the Fullstack Academy Stackathon.
-          <br />
-          <br />
-          The purpose of the Fancy Advanced Resume Targeter is to enable an end
-          user to compare their resume against a job description's keywords.
-          Paste your resume in the top box and a target job description in the
-          bottom box.
-          <br />
-          <br />
-          Once you change focus between the two fields, this tool will highlight
-          the skills you have on your resume in green and the missing skills
-          will be red in the job description and give you a calculation on the
-          skills matching between your resume and the job.
-          <br />
-          <br />
-          Keep updating your resume and tabbing between the two fields until you
-          have a strong fit for your dream role!
         </p>
       </div>
     );

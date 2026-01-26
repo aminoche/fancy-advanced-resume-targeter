@@ -14,7 +14,6 @@ class App extends Component {
         skillsYouHaveAndInJobDescription: [],
         skillsYouDoNotHaveAndInJobDescription: [],
         skillsYouHaveAndNotInJobDescription: [],
-        fluffInJobDescription: [],
         percentSkillsMatching: 0
       }
     };
@@ -40,6 +39,8 @@ class App extends Component {
       .skillsYouHaveAndInJobDescription;
     const skillsYouDoNotHaveAndInJobDescription = this.state.summary
       .skillsYouDoNotHaveAndInJobDescription;
+    const skillsYouHaveAndNotInJobDescription = this.state.summary
+      .skillsYouHaveAndNotInJobDescription;
     const percentSkillsMatching = Math.floor(
       this.state.summary.percentSkillsMatching * 100
     );
@@ -48,7 +49,11 @@ class App extends Component {
       <span
         key={index}
         className={
-          skillsYouHaveAndInJobDescription.includes(word) ? 'green' : 'grey'
+          skillsYouHaveAndInJobDescription.includes(word)
+            ? 'green'
+            : skillsYouHaveAndNotInJobDescription.includes(word)
+            ? 'yellow'
+            : 'grey'
         }
       >
         {word}{' '}
